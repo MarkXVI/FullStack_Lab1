@@ -5,7 +5,7 @@ require('dotenv').config;
 const signale = require('signale');
 const mongoose = require('mongoose');
 
-const api = require('./routes/api');
+const verify = require('./routes/verify');
 
 const port = process.env.PORT || 3000;
 
@@ -14,7 +14,7 @@ mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser
 });
 
 app.use(express.static('public'));
-app.use('/api', api);
+app.use('/verify', verify);
 
 
 app.listen(port, () => {
