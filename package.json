@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "open": "start chrome http://localhost:3000",
+    "oadev": "start chrome http://localhost:3000 && nodemon index.js"
   },
   "author": "Mark Harvey",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mongoose": "^6.2.9",

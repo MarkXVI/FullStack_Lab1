@@ -1,0 +1,20 @@
+
+#content {
+    margin: 0 auto;
+    width: fit-content;
+    
+}
+
+#content .user {
+    padding: 20px;
+    display: inline-block;
+    background-color: rgb(148, 148, 148);
+    margin: 5px;
+    width: max-content;
+    height: fit-content;
+}
+
+#content .user #register {
+    width: inherit;
+    height: inherit;
+}
