@@ -8,3 +8,11 @@ After that the application can be run
 npm run start
 ```
 Now you can open the site at [Localhost port 3000 link](http://localhost:3000/).
+
+
+add to .env file
+
+```
+DB_URL=mongodb+srv://ProgramLogin:PasswordForProgram1@markdb-cluster.ufyct.mongodb.net/FSLab1?retryWrites=true&w=majority
+ENV_PORT=3000
+```
