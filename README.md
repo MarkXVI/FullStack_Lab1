@@ -14,5 +14,4 @@ add to .env file
 
 ```
 DB_URL=mongodb+srv://ProgramLogin:PasswordForProgram1@markdb-cluster.ufyct.mongodb.net/FSLab1?retryWrites=true&w=majority
-ENV_PORT=3000
 ```
