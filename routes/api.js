@@ -1,18 +1,18 @@
 const router = require('express').Router();
 const User = require('../model/User');
 
-router.get("/", async (req, res) => {
+router.get("/user", async (req, res) => {
     const users = await User.find();
     res.send(users);
 });
 
-router.get("/:name", async (req, res) => {
-    let name = req.params.name[0].toUpperCase() + req.params.name.substring(1, req.params.name.length);
-    const user = await User.findOne({ name: name });
+router.get("/user/:id", async (req, res) => {
+    let id = req.params.id;
+    const user = await User.findOne({ id: id });
     res.send(user);
 });
 
-router.post("/register", async (req, res) => {
+router.post("/user/register", async (req, res) => {
     const user = new User({
         name: req.body.name,
         age: req.body.age

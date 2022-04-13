@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const signale = require('signale');
 const mongoose = require('mongoose');
 
-const user = require('./routes/user');
+const user = require('./routes/api');
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser
 
 app.use(express.json());
 app.use(express.static('public'));
-app.use("/user", user);
+app.use("/api", api);
 
 app.listen(PORT, () => {
     signale.info(`Sever listening on port: ${PORT}`);
