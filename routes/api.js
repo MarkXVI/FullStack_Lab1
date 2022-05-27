@@ -7,18 +7,54 @@ router.get("/user", async (req, res) => {
 });
 
 router.get("/user/:name", async (req, res) => {
-    let name = req.params.name;
-    const user = await User.findOne({ name: name });
+    const user = await User.findOne({ name: req.params.name });
+
+    if (!user) {
+        return res.status(400).json({ error: 'Name not found!'});
+    };
+
     res.send(user);
 });
 
+router.post("/user/update/:name", async (req, res) => {
+
+    const user = await User.findOne({ name: req.params.name });
+    
+    if (!user) {
+        return res.status(400).json({ error: 'Name not found!'});
+    };
+
+    await User.updateOne(
+        { name: user.name },
+        { $set: { 
+            name: (req.body.name ? req.body.name :user.name),
+            age: (req.body.age ? req.body.age : user.age),
+            gender: req.body.gender 
+        }}
+    );
+
+    res.send(200);
+
+});
+
 router.post("/user/delete/:name", async (req, res) => {
-    let name = req.params.name;
-    await User.deleteOne({ name: name });
-    res.send(name);
+
+    const found = await User.deleteOne({ name: req.params.name });
+
+    if (!found) {
+        return res.status(400).json({ error: 'Name not found!'});
+    };
+    res.send(200);
 });
 
 router.post("/user/register", async (req, res) => {
+
+    const nameExists = await User.findOne({ name: req.body.name });
+
+    if (nameExists) {
+        return res.status(400).json({ error: 'Name already exists!'});
+    };
+
     const user = new User({
         name: req.body.name,
         age: req.body.age,
