@@ -15,3 +15,9 @@ add to .env file
 ```
 DB_URL=mongodb+srv://ProgramLogin:PasswordForProgram1@markdb-cluster.ufyct.mongodb.net/FSLab1?retryWrites=true&w=majority
 ```
+
+You can view the content as a Table (default) or as cards.
+
+To change view click on edit or the card and press return to ( desired viewplatform )!
+
+## ENJOY!!
