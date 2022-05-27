@@ -6,16 +6,23 @@ router.get("/user", async (req, res) => {
     res.send(users);
 });
 
-router.get("/user/:id", async (req, res) => {
-    let id = req.params.id;
-    const user = await User.findOne({ id: id });
+router.get("/user/:name", async (req, res) => {
+    let name = req.params.name;
+    const user = await User.findOne({ name: name });
     res.send(user);
+});
+
+router.post("/user/delete/:name", async (req, res) => {
+    let name = req.params.name;
+    await User.deleteOne({ name: name });
+    res.send(name);
 });
 
 router.post("/user/register", async (req, res) => {
     const user = new User({
         name: req.body.name,
-        age: req.body.age
+        age: req.body.age,
+        gender: req.body.gender
     });
     user.save()
         .then(user => {

@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const signale = require('signale');
 const mongoose = require('mongoose');
 
-const user = require('./routes/api');
+const api = require('./routes/api');
 
 dotenv.config();
 
