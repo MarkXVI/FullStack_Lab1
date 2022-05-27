@@ -9,6 +9,13 @@ npm run start
 ```
 Now you can open the site at [Localhost port 3000 link](http://localhost:3000/).
 
+### OR
+
+enter
+```
+npm run open
+```
+and this will "concurrently" start the server and and open the Localhost Page for you!
 
 add to .env file
 
